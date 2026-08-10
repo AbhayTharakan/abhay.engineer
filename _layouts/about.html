@@ -7,9 +7,11 @@ layout: default
 
   <div class="about-grid">
     <aside class="stack-s">
-      <div class="photo">
+      <div class="photo{% if page.photo %} photo--filled{% endif %}">
         {%- if page.photo %}
-        <img src="{{ page.photo | relative_url }}" alt="{{ site.author.name }}">
+        <img src="{{ page.photo | relative_url }}"
+             alt="{{ page.photo_alt | default: site.author.name }}"
+             width="700" height="974">
         {%- else %}
         PHOTO
         {%- endif %}
@@ -80,35 +82,6 @@ layout: default
       </section>
       {%- endif %}
 
-      {%- if page.honors %}
-      <section>
-        <h2 class="label">HONORS &amp; AWARDS</h2>
-        {%- for h in page.honors %}
-        <div class="honor-row">
-          <span class="yr">{{ h.year }}</span>
-          <span class="txt">{{ h.text }}</span>
-        </div>
-        {%- endfor %}
-      </section>
-      {%- endif %}
-
-      {%- if page.timeline %}
-      <section>
-        <h2 class="label">TIMELINE</h2>
-        <div class="timeline">
-          {%- for t in page.timeline %}
-          <div class="tl-row">
-            <div class="tl-year">{{ t.year }}</div>
-            <div class="tl-spine" aria-hidden="true">
-              <div class="tl-dot"></div>
-              <div class="tl-line"></div>
-            </div>
-            <div class="tl-text">{{ t.text }}</div>
-          </div>
-          {%- endfor %}
-        </div>
-      </section>
-      {%- endif %}
     </div>
   </div>
 </div>

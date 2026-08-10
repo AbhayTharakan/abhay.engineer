@@ -15,6 +15,20 @@
   </div>
   {%- endif %}
 
+  {%- comment -%} Optional image strip: `gallery:` list in the project's front matter. {%- endcomment -%}
+  {%- if p.gallery %}
+  <div class="gallery" data-count="{{ p.gallery.size }}">
+    {%- for g in p.gallery %}
+    <figure class="gallery-item">
+      <img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: p.title }}" loading="lazy">
+      {%- if g.caption %}
+      <figcaption>{{ g.caption }}</figcaption>
+      {%- endif %}
+    </figure>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
   <div class="card-body">
     <div class="card-head">
       <h3 class="card-title">{{ p.title }}</h3>

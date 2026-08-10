@@ -8,7 +8,8 @@ description: >-
   Abhay Tharakan — mechanical engineering at Purdue, with a background in CAD,
   fabrication, embedded electronics, and competitive swimming.
 
-# photo: /assets/images/abhay.jpg   # uncomment once you add the file
+photo: /assets/images/abhay.jpg
+photo_alt: Abhay Tharakan, standing outdoors in a blue patterned shirt
 
 skills:
   - SolidWorks
@@ -58,25 +59,6 @@ education:
     location: Apex, North Carolina
     period: AUG 2021 — JUN 2025
     detail: GPA 4.22 · Magna Cum Laude · AP Scholar with Distinction
-
-honors:
-  - year: "2025"
-    text: North Carolina 4A 100yd Backstroke High School State Champion
-  - year: "2022–25"
-    text: Scholastic All American
-
-timeline:
-  - year: "2024"
-    text: Started as athletics marketing intern at Apex High School, running
-      social media for the program.
-  - year: "2025"
-    text: Graduated Apex High School Magna Cum Laude and won the NC 4A 100yd
-      backstroke state title. Started mechanical engineering at Purdue and joined
-      the Small Business Engineering Club.
-  - year: "2026"
-    text: Undergraduate research turning surgical transcripts into structured
-      datasets. Built a 2-axis pen plotter, then started the browser-based
-      factory simulation platform.
 ---
 
 I'm a mechanical engineering student at Purdue University, where I'm on the

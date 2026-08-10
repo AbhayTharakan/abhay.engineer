@@ -79,6 +79,21 @@ media:
 Without one, the card renders text-only and the Home hero falls back to a hatched
 placeholder panel. For the About page portrait, set `photo:` in `about.md`.
 
+For several images, use `gallery:` instead — it renders a captioned strip across
+the top of the card (3 columns on desktop, 2 on mobile):
+
+```yaml
+gallery:
+  - src: /assets/images/my-project/sketch.jpg
+    alt: Description for screen readers
+    caption: DIMENSIONED SKETCHES
+```
+
+Tiles are square and images are scaled to fit inside them, never cropped — so
+drawings and CAD views stay fully readable whatever their aspect ratio. Keep
+source images under ~1000px wide; anything larger is wasted bytes at the size
+they render.
+
 To change which project is the Home hero, set `featured:` in `index.md` to that
 project's filename without the extension.
 

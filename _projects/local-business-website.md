@@ -6,6 +6,9 @@ period: AUG 2025 — DEC 2025
 role: Small Business Engineering Club
 status: COMPLETE
 tags: [WEB, UI/UX, ACCESSIBILITY]
+media:
+  image: /assets/images/local-business-website/hero.jpg
+  alt: The bridal boutique's homepage, with a black-and-white photo of the shop behind the headline "Luxury in every stitch"
 links:
   - label: LIVE SITE
     url: https://script.google.com/macros/s/AKfycbz_1cIXc8o54hb-aV1ndD2vRZ7VAoksG4NPlVpQcne36kgpYYuUxRzTpX-8WtI72tUQLQ/exec?page=index

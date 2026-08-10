@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- assign featured = site.projects | where: "slug", page.featured | first -%}
+
+<section class="wrap hero">
+  <div class="eyebrow">// {{ page.eyebrow }}</div>
+  <h1 class="hero-title">{{ page.hero_name | default: site.author.name }}</h1>
+  <div class="rule" aria-hidden="true"></div>
+
+  <div class="hero-intro prose">
+    {{ content }}
+  </div>
+
+  {%- if page.actions %}
+  <div class="btn-row">
+    {%- for a in page.actions %}
+    <a class="btn btn--{{ a.style | default: 'ghost' }}" href="{{ a.url | relative_url }}">{{ a.label }}</a>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+</section>
+
+{%- if featured %}
+<section class="wrap hero-featured">
+  <div class="label">FEATURED PROJECT</div>
+  <article class="card card--hero">
+    <div class="card-media">
+      {%- if featured.media.video %}
+      <iframe src="{{ featured.media.video }}" title="{{ featured.title }}" loading="lazy" allowfullscreen></iframe>
+      {%- elsif featured.media.image %}
+      <img src="{{ featured.media.image | relative_url }}" alt="{{ featured.media.alt | default: featured.title }}" loading="lazy">
+      {%- else %}
+      <div class="media-placeholder">IMAGE / VIDEO</div>
+      {%- endif %}
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">{{ featured.title }}</h2>
+      <div class="card-meta">{{ featured.period }}{% if featured.role %} · {{ featured.role }}{% endif %}</div>
+      {%- if featured.tags %}
+      <ul class="tag-row">
+        {%- for t in featured.tags %}
+        <li class="tag tag--invert">{{ t }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {%- comment -%}
+        The hero shows only the lead paragraph; the bullet list that follows it in
+        the project's Markdown is left for the Projects page.
+      {%- endcomment -%}
+      {%- assign lead = featured.content | markdownify | split: "</p>" | first -%}
+      <div class="prose">{{ lead }}</p></div>
+      <div class="card-links">
+        <a href="{{ '/projects/' | relative_url }}#{{ featured.slug }}">VIEW PROJECT →</a>
+      </div>
+    </div>
+  </article>
+</section>
+{%- endif %}

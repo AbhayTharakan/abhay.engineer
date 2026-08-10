@@ -1,0 +1,47 @@
+{%- comment -%}
+  Renders one project card from a _projects/*.md document.
+  Param: include.project (required).
+{%- endcomment -%}
+{%- assign p = include.project -%}
+
+<article class="card">
+  {%- if p.media.video %}
+  <div class="card-media">
+    <iframe src="{{ p.media.video }}" title="{{ p.title }}" loading="lazy" allowfullscreen></iframe>
+  </div>
+  {%- elsif p.media.image %}
+  <div class="card-media">
+    <img src="{{ p.media.image | relative_url }}" alt="{{ p.media.alt | default: p.title }}" loading="lazy">
+  </div>
+  {%- endif %}
+
+  <div class="card-body">
+    <div class="card-head">
+      <h3 class="card-title">{{ p.title }}</h3>
+      {%- if p.status %}
+      <span class="card-status">STATUS: {{ p.status }}</span>
+      {%- endif %}
+    </div>
+
+    <div class="card-meta">{{ p.period }}{% if p.role %} · {{ p.role }}{% endif %}</div>
+
+    {%- if p.tags %}
+    <ul class="tag-row">
+      {%- for t in p.tags %}
+      <li class="tag tag--invert">{{ t }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    {%- comment -%} The Markdown body of the project file. {%- endcomment -%}
+    <div class="prose">{{ p.content | markdownify }}</div>
+
+    {%- if p.links and p.links.size > 0 %}
+    <div class="card-links">
+      {%- for l in p.links %}
+      <a href="{{ l.url }}"{% include external-attrs.html url=l.url %}>{{ l.label }} →{% if l.url contains "://" %}<span class="sr-only"> (opens in a new tab)</span>{% endif %}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</article>

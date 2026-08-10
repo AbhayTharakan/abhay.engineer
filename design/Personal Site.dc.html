@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#FAEACB;}
+  ::selection{background:#FBC896;}
+  a{color:#2C7B9C;}
+  a:hover{color:#1F5A73;}
+</style>
+</helmet>
+
+<div style="min-height:100vh;font-family:'IBM Plex Sans',sans-serif;color:#1F5A73;background-color:#FAEACB;">
+
+  <!-- title block header -->
+  <div style="border-bottom:1px solid #1F5A73;background:#1F5A73;">
+    <div style="max-width:1100px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#FBC896;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:9px;height:9px;border:1.5px solid #FBC896;transform:rotate(45deg);"></div>
+        <span style="color:#FAEACB;font-weight:600;">ABHAY.ENGINEER</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- nav / sheet selector -->
+  <div style="max-width:1100px;margin:0 auto;padding:18px 28px 0;display:flex;gap:8px;font-family:'IBM Plex Mono',monospace;">
+    <button onClick="{{ goHome }}" style="cursor:pointer;background:{{ homeBg }};color:{{ homeColor }};border:1px solid #1F5A7366;border-bottom:{{ homeBorderBottom }};padding:10px 18px;font-family:inherit;font-size:12px;letter-spacing:0.08em;">01 · HOME</button>
+    <button onClick="{{ goAbout }}" style="cursor:pointer;background:{{ aboutBg }};color:{{ aboutColor }};border:1px solid #1F5A7366;border-bottom:{{ aboutBorderBottom }};padding:10px 18px;font-family:inherit;font-size:12px;letter-spacing:0.08em;">02 · ABOUT</button>
+    <div style="position:relative;">
+      <button onClick="{{ toggleProjectsMenu }}" style="cursor:pointer;display:flex;align-items:center;gap:8px;background:{{ projectsBg }};color:{{ projectsColor }};border:1px solid #1F5A7366;border-bottom:{{ projectsBorderBottom }};padding:10px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;">
+        <span>{{ projectsButtonLabel }}</span>
+        <span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:{{ chevronTransform }};transition:transform 0.2s ease;"></span>
+      </button>
+      <sc-if value="{{ isProjectsMenuOpen }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeProjectsMenu }}" style="position:fixed;inset:0;z-index:9;"></div>
+      </sc-if>
+      <div style="position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#FAEACB;border:1px solid #1F5A7340;box-shadow:0 8px 24px #1F5A7326;z-index:10;overflow:hidden;transform-origin:top;opacity:{{ menuOpacity }};transform:{{ menuTransform }};pointer-events:{{ menuPointerEvents }};transition:opacity 0.16s ease, transform 0.16s cubic-bezier(0.2,0.8,0.2,1);">
+        <button onClick="{{ selectYear2025 }}" style="cursor:pointer;display:block;width:100%;text-align:left;background:transparent;border:none;padding:12px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#1F5A73;" style-hover="background:#2C7B9C;color:#FAEACB;">2025 PROJECTS</button>
+        <button onClick="{{ selectYear2026 }}" style="cursor:pointer;display:block;width:100%;text-align:left;background:transparent;border:none;padding:12px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#1F5A73;border-top:1px solid #1F5A7326;" style-hover="background:#2C7B9C;color:#FAEACB;">2026 PROJECTS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width:1100px;margin:0 auto;padding:64px 28px 40px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2C7B9C;margin-bottom:18px;">// STUDENT · MECHANICAL ENGINEER</div>
+      <h1 style="font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(48px,9vw,96px);line-height:0.95;margin:0 0 20px;letter-spacing:-0.01em;color:#1F5A73;">ABHAY</h1>
+      <div style="width:120px;height:2px;background:#1F5A7399;position:relative;margin-bottom:24px;">
+        <div style="position:absolute;left:0;top:-4px;width:2px;height:10px;background:#1F5A7399;"></div>
+        <div style="position:absolute;right:0;top:-4px;width:2px;height:10px;background:#1F5A7399;"></div>
+      </div>
+      <p style="font-size:19px;line-height:1.6;max-width:560px;color:#3A6B80;margin:0 0 36px;">2nd-year Mechanical Engineering student at Purdue University. Interested in design, fabrication, and building things that move.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <button onClick="{{ goProjects }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;padding:14px 24px;background:#2C7B9C;color:#FAEACB;border:none;font-weight:600;">VIEW PROJECTS →</button>
+        <button onClick="{{ goAbout }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;padding:14px 24px;background:transparent;color:#1F5A73;border:1px solid #1F5A7380;">ABOUT ME</button>
+      </div>
+    </div>
+
+    <div style="max-width:1100px;margin:0 auto;padding:20px 28px 80px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#3A6B80;margin-bottom:14px;">FEATURED PROJECT</div>
+      <div style="border:1px solid #2C7B9C;background:#2C7B9C;display:grid;grid-template-columns:1.1fr 1fr;">
+        <div style="padding:32px;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+          <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#FAEACB;">Neil Armstrong Exhibit</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;padding:4px 9px;border:1px solid #FAEACB66;color:#FAEACB;">EXHIBIT DESIGN</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;padding:4px 9px;border:1px solid #FAEACB66;color:#FAEACB;">FABRICATION</span>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.6;font-style:italic;color:#FAEACB;">Placeholder — add a 2–3 sentence summary of the exhibit, your role, and the engineering challenge.</p>
+          <button onClick="{{ goProjects }}" style="cursor:pointer;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;background:none;border:none;color:#FAEACB;padding:0;text-decoration:underline;">VIEW PROJECT →</button>
+        </div>
+        <div style="min-height:220px;border-left:1px solid #2C7B9C;">
+          <iframe src="https://www.youtube.com/embed/JtLGgO6NDlo" title="Neil Armstrong Exhibit" style="width:100%;height:100%;border:none;display:block;" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ABOUT -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1100px;margin:0 auto;padding:56px 28px 80px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2C7B9C;margin-bottom:12px;">// 02</div>
+      <h1 style="font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(36px,6vw,56px);margin:0 0 40px;color:#1F5A73;">ABOUT ME</h1>
+
+      <div style="display:grid;grid-template-columns:260px 1fr;gap:48px;">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="aspect-ratio:3/4;background-image:repeating-linear-gradient(45deg, #FBC896 0px, #FBC896 2px, transparent 2px, transparent 13px);background-color:#F1D9A9;border:1px dashed #1F5A7380;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#3A6B80;">PHOTO</span>
+          </div>
+          <div style="border:1px solid #1F5A7340;padding:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;">
+            <div style="letter-spacing:0.1em;color:#3A6B80;margin-bottom:10px;">CONTACT</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <a href="https://linkedin.com/" style="text-decoration:none;">LINKEDIN →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:36px;">
+          <p style="margin:0;font-size:17px;line-height:1.7;color:#3A6B80;">2nd-year Mechanical Engineering student at Purdue University. Drawn to the parts of engineering where design meets making — CAD in the morning, machine shop in the afternoon. Currently building out a portfolio of coursework and independent projects.</p>
+
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#3A6B80;margin-bottom:14px;">SKILLS &amp; TOOLS</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <sc-for list="{{ skills }}" as="s" hint-placeholder-count="6">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 12px;border:1px solid #1F5A7340;color:#3A6B80;">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#3A6B80;margin-bottom:14px;">COURSEWORK HIGHLIGHTS</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;">
+              <sc-for list="{{ coursework }}" as="c" hint-placeholder-count="5">
+                <div style="font-size:14px;padding:9px 0;border-bottom:1px solid #1F5A7326;color:#3A6B80;">{{ c }}</div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#3A6B80;margin-bottom:18px;">TIMELINE</div>
+            <div style="display:flex;flex-direction:column;">
+              <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="3">
+                <div style="display:grid;grid-template-columns:70px 16px 1fr;">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#2C7B9C;padding:4px 0;">{{ t.year }}</div>
+                  <div style="display:flex;flex-direction:column;align-items:center;">
+                    <div style="width:8px;height:8px;border-radius:50%;background:#2C7B9C;"></div>
+                    <div style="width:1px;flex:1;background:#1F5A7333;"></div>
+                  </div>
+                  <div style="font-size:14px;padding:0 0 24px 14px;color:#3A6B80;">{{ t.text }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- PROJECTS -->
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1100px;margin:0 auto;padding:56px 28px 90px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2C7B9C;margin-bottom:12px;">// 03</div>
+      <h1 style="font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:clamp(36px,6vw,56px);margin:0 0 8px;color:#1F5A73;">PROJECTS</h1>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A6B80;margin:0 0 28px;">Selected work in mechanical design &amp; fabrication.</p>
+
+
+
+      <sc-if value="{{ isYear2025 }}" hint-placeholder-val="{{ false }}">
+        <div style="border:1px dashed #1F5A7380;background:#DCEEF5;padding:60px 32px;text-align:center;">
+          <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:#3A6B80;">NO 2025 PROJECTS ADDED YET — placeholder slot for a project from this year.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isYear2026 }}" hint-placeholder-val="{{ true }}">
+        <div style="border:1px solid #2C7B9C;background:#2C7B9C;">
+          <div style="aspect-ratio:16/9;border-bottom:1px solid #2C7B9C;">
+            <iframe src="https://www.youtube.com/embed/JtLGgO6NDlo" title="Neil Armstrong Exhibit" style="width:100%;height:100%;border:none;display:block;" allowfullscreen=""></iframe>
+          </div>
+          <div style="padding:32px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+              <h3 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#FAEACB;">Neil Armstrong Exhibit</h3>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#FAEACB;">STATUS: ACTIVE</span>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;padding:4px 9px;border:1px solid #FAEACB66;color:#FAEACB;">EXHIBIT DESIGN</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;padding:4px 9px;border:1px solid #FAEACB66;color:#FAEACB;">FABRICATION</span>
+            </div>
+            <p style="margin:0 0 20px;font-size:15px;line-height:1.7;font-style:italic;color:#FAEACB;">Placeholder description — replace with a 2–3 sentence summary: what the exhibit is, your role in designing/building it, and the engineering challenge it solved.</p>
+            <div style="display:flex;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:12px;">
+              <a href="#" style="text-decoration:none;color:#FAEACB;">GITHUB REPO →</a>
+              <a href="#" style="text-decoration:none;color:#FAEACB;">LIVE DEMO →</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- footer -->
+  <div style="border-top:1px solid #1F5A73;background:#1F5A73;">
+    <div style="max-width:1100px;margin:0 auto;padding:20px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#FBC896;">
+      <span>© 2026 ABHAY.ENGINEER</span>
+      <div style="display:flex;gap:18px;">
+        <a href="https://linkedin.com/" style="text-decoration:none;color:#FBC896;">LINKEDIN</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'home', year: '2026', menuOpen: false };
+
+  skills = ['SolidWorks', 'AutoCAD', 'MATLAB', 'Python', '3D Printing', 'Machining'];
+  coursework = ['Statics & Mechanics of Materials', 'Thermodynamics', 'Dynamics', 'Manufacturing Processes', 'Engineering Design & Innovation'];
+  timeline = [
+    { year: '2024', text: 'Started Mechanical Engineering at Purdue University.' },
+    { year: '2025', text: 'Coursework in statics, dynamics, and manufacturing processes.' },
+    { year: '2026', text: 'Began the Neil Armstrong Exhibit project.' },
+  ];
+
+  activeTab = { bg: '#2C7B9C', color: '#FAEACB', border: '2px solid #2C7B9C' };
+  inactiveTab = { bg: 'transparent', color: '#1F5A73', border: '1px solid transparent' };
+  activeYear = { bg: '#2C7B9C', color: '#FAEACB' };
+  inactiveYear = { bg: 'transparent', color: '#1F5A73' };
+
+  renderVals() {
+    const page = this.state.page;
+    const year = this.state.year;
+    const tab = (name) => (page === name ? this.activeTab : this.inactiveTab);
+    const yTab = (y) => (year === y ? this.activeYear : this.inactiveYear);
+    const home = tab('home'), about = tab('about'), projects = tab('projects');
+    const y2025 = yTab('2025'), y2026 = yTab('2026');
+    return {
+      isHome: page === 'home',
+      isAbout: page === 'about',
+      isProjects: page === 'projects',
+      goHome: () => this.setState({ page: 'home' }),
+      goAbout: () => this.setState({ page: 'about' }),
+      goProjects: () => this.setState({ page: 'projects' }),
+      homeBg: home.bg, homeColor: home.color, homeBorderBottom: home.border,
+      aboutBg: about.bg, aboutColor: about.color, aboutBorderBottom: about.border,
+      projectsBg: projects.bg, projectsColor: projects.color, projectsBorderBottom: projects.border,
+      isYear2025: year === '2025',
+      isYear2026: year === '2026',
+      goYear2025: () => this.setState({ year: '2025' }),
+      goYear2026: () => this.setState({ year: '2026' }),
+      y2025Bg: y2025.bg, y2025Color: y2025.color,
+      y2026Bg: y2026.bg, y2026Color: y2026.color,
+      yearValue: year,
+      onYearChange: (e) => this.setState({ year: e.target.value }),
+      isProjectsMenuOpen: this.state.menuOpen,
+      toggleProjectsMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeProjectsMenu: () => this.setState({ menuOpen: false }),
+      selectYear2025: () => this.setState({ page: 'projects', year: '2025', menuOpen: false }),
+      selectYear2026: () => this.setState({ page: 'projects', year: '2026', menuOpen: false }),
+      projectsButtonLabel: page === 'projects' ? `03 · PROJECTS (${year})` : '03 · PROJECTS',
+      chevronTransform: this.state.menuOpen ? 'rotate(225deg)' : 'rotate(45deg)',
+      menuOpacity: this.state.menuOpen ? 1 : 0,
+      menuTransform: this.state.menuOpen ? 'translateY(0) scale(1)' : 'translateY(-6px) scale(0.97)',
+      menuPointerEvents: this.state.menuOpen ? 'auto' : 'none',
+      skills: this.skills,
+      coursework: this.coursework,
+      timeline: this.timeline,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

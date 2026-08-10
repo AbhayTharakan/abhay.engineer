@@ -1,0 +1,10 @@
+<footer class="bar bar--footer">
+  <div class="wrap bar-inner">
+    <span>© {{ site.time | date: "%Y" }} ABHAY.ENGINEER</span>
+    <div class="bar-links">
+      {%- for c in site.contact %}
+      <a href="{{ c.url }}"{% include external-attrs.html url=c.url %}>{{ c.label }}</a>
+      {%- endfor %}
+    </div>
+  </div>
+</footer>

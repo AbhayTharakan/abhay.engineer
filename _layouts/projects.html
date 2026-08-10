@@ -1,0 +1,34 @@
+---
+layout: default
+---
+{%- comment -%}
+  Year groups come from the `year:` front matter of the files in _projects/, so
+  adding a project with a new year creates its group here and its entry in the
+  nav dropdown with no template edit.
+{%- endcomment -%}
+{%- assign years = site.projects | map: "year" | uniq | sort | reverse -%}
+
+<div class="wrap section">
+  <div class="eyebrow">// {{ page.number }}</div>
+  <h1 class="page-title">{{ page.heading | default: page.title | upcase }}</h1>
+  <div class="page-intro prose">{{ content }}</div>
+
+  {%- for y in years %}
+    {%- assign group = site.projects | where: "year", y | sort: "order" %}
+  <section class="year-group" id="year-{{ y }}">
+    <div class="year-head">
+      <h2>{{ y }}</h2>
+      <span class="line" aria-hidden="true"></span>
+      <span class="count">{{ group.size }} PROJECT{% if group.size != 1 %}S{% endif %}</span>
+    </div>
+
+    <div class="card-grid">
+      {%- for p in group %}
+      <div id="{{ p.slug }}" class="card-anchor">
+        {%- include project-card.html project=p -%}
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+</div>

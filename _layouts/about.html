@@ -1,0 +1,114 @@
+---
+layout: default
+---
+<div class="wrap section">
+  <div class="eyebrow">// {{ page.number }}</div>
+  <h1 class="page-title">{{ page.heading | default: page.title | upcase }}</h1>
+
+  <div class="about-grid">
+    <aside class="stack-s">
+      <div class="photo">
+        {%- if page.photo %}
+        <img src="{{ page.photo | relative_url }}" alt="{{ site.author.name }}">
+        {%- else %}
+        PHOTO
+        {%- endif %}
+      </div>
+      {%- if site.contact %}
+      <div class="contact-box">
+        <div class="label" style="margin-bottom:10px;">CONTACT</div>
+        <div class="contact-list">
+          {%- for c in site.contact %}
+          <a href="{{ c.url }}"{% include external-attrs.html url=c.url %}>{{ c.label }} →</a>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endif %}
+    </aside>
+
+    <div class="stack">
+      {%- comment -%} The Markdown body of about.md renders here. {%- endcomment -%}
+      <div class="about-prose prose">
+        {{ content }}
+      </div>
+
+      {%- if page.skills %}
+      <section>
+        <h2 class="label">SKILLS &amp; TOOLS</h2>
+        <ul class="tag-row">
+          {%- for s in page.skills %}
+          <li class="tag tag--lg">{{ s }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      {%- if page.experience %}
+      <section>
+        <h2 class="label">EXPERIENCE</h2>
+        {%- for e in page.experience %}
+        <div class="entry">
+          <div class="entry-head">
+            <span class="entry-title">{{ e.role }}</span>
+            <span class="entry-when">{{ e.period }}</span>
+          </div>
+          <div class="entry-org">{{ e.org }}</div>
+          {%- if e.points %}
+          <ul class="entry-points">
+            {%- for pt in e.points %}
+            <li>{{ pt }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- if page.education %}
+      <section>
+        <h2 class="label">EDUCATION</h2>
+        {%- for ed in page.education %}
+        <div class="entry">
+          <div class="entry-head">
+            <span class="entry-title">{{ ed.school }}</span>
+            <span class="entry-when">{{ ed.period }}</span>
+          </div>
+          <div class="entry-org">{{ ed.location }} · {{ ed.detail }}</div>
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- if page.honors %}
+      <section>
+        <h2 class="label">HONORS &amp; AWARDS</h2>
+        {%- for h in page.honors %}
+        <div class="honor-row">
+          <span class="yr">{{ h.year }}</span>
+          <span class="txt">{{ h.text }}</span>
+        </div>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- if page.timeline %}
+      <section>
+        <h2 class="label">TIMELINE</h2>
+        <div class="timeline">
+          {%- for t in page.timeline %}
+          <div class="tl-row">
+            <div class="tl-year">{{ t.year }}</div>
+            <div class="tl-spine" aria-hidden="true">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-text">{{ t.text }}</div>
+          </div>
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+title: Abhay Tharakan
+tagline: Mechanical engineering student at Purdue
+description: >-
+  Personal site of Abhay Tharakan — mechanical engineering student at Purdue
+  University. Design, fabrication, and building things that move.
+
+url: "https://abhay.engineer"
+baseurl: ""
+
+author:
+  name: Abhay Tharakan
+  email: abhay.tharakan@gmail.com
+
+lang: en
+
+# One Markdown file per project in _projects/. output: false because projects are
+# rendered together on /projects/ rather than each getting its own page.
+collections:
+  projects:
+    output: false
+
+# Shown in the footer on every page and in the About page contact box.
+contact:
+  - label: EMAIL
+    url: "mailto:abhay.tharakan@gmail.com"
+  - label: LINKEDIN
+    url: "https://linkedin.com/in/abhay-tharakan"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - design/
+  - specs/
+  - vendor/
+  - .jekyll-cache/

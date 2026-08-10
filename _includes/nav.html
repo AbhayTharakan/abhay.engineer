@@ -1,0 +1,30 @@
+{%- comment -%}
+  Years come from the `year:` front matter of the files in _projects/, so the
+  dropdown stays in sync with them.
+{%- endcomment -%}
+{%- assign years = site.projects | map: "year" | uniq | sort | reverse -%}
+{%- assign page_url = page.url | remove: "index.html" -%}
+
+<nav class="tabs" aria-label="Primary">
+  <a class="tab{% if page_url == '/' %} is-active{% endif %}"
+     href="{{ '/' | relative_url }}"
+     {% if page_url == '/' %}aria-current="page"{% endif %}>01 · HOME</a>
+
+  <a class="tab{% if page_url == '/about/' %} is-active{% endif %}"
+     href="{{ '/about/' | relative_url }}"
+     {% if page_url == '/about/' %}aria-current="page"{% endif %}>02 · ABOUT</a>
+
+  <details class="tab-menu">
+    <summary class="tab{% if page_url == '/projects/' %} is-active{% endif %}"
+             {% if page_url == '/projects/' %}aria-current="page"{% endif %}>
+      <span>03 · PROJECTS</span>
+      <span class="chev" aria-hidden="true"></span>
+    </summary>
+    <div class="tab-dropdown">
+      <a href="{{ '/projects/' | relative_url }}">ALL PROJECTS</a>
+      {%- for y in years %}
+      <a href="{{ '/projects/' | relative_url }}#year-{{ y }}">{{ y }} PROJECTS</a>
+      {%- endfor %}
+    </div>
+  </details>
+</nav>

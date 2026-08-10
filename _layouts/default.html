@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  {%- include head.html -%}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="bar bar--header">
+    <div class="wrap bar-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">ABHAY.ENGINEER</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    {%- include nav.html -%}
+  </div>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  {%- include footer.html -%}
+</body>
+</html>

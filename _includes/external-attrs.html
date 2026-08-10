@@ -1,0 +1,8 @@
+{%- comment -%}
+  Emits target/rel attributes when a URL points off-site, so external links open
+  in a new tab while internal ones (/projects/, #anchors) and mailto: don't.
+  Usage: <a href="{{ u }}"{% include external-attrs.html url=u %}>
+  rel="noopener" is required with target="_blank" — without it the opened page
+  gets a window.opener handle back to this one.
+{%- endcomment -%}
+{%- if include.url contains "://" %} target="_blank" rel="noopener noreferrer"{% endif -%}

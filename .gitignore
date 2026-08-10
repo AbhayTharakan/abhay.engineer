@@ -1,0 +1,21 @@
+# Not committed: the lockfile format depends on the local Bundler major version,
+# which can differ from CI's. The Gemfile's `~>` constraints pin the versions
+# that matter, and CI resolves against them on each build.
+Gemfile.lock
+
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+.DS_Store
+
+# Local editor/tooling state.
+.claude/
+
+# The resume PDF carries a phone number, and this repo is public. The site pulls
+# its content from _data/*.yml, so the PDF isn't needed at build time. Remove
+# this line if you're comfortable publishing the file as-is.
+specs/*.PDF
+specs/*.pdf

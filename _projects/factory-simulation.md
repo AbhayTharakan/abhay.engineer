@@ -6,6 +6,9 @@ period: MAY 2026 — PRESENT
 role: Solo project
 status: ACTIVE
 tags: [DIGITAL TWIN, SIMULATION, WEB]
+media:
+  # youtube-nocookie avoids setting tracking cookies until the viewer hits play.
+  video: https://www.youtube-nocookie.com/embed/MwU8jyQYCEE
 links: []
 ---
 

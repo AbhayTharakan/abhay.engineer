@@ -61,9 +61,8 @@ education:
     detail: GPA 4.22 · Magna Cum Laude · AP Scholar with Distinction
 ---
 
+My name is Abhay Tharakan and I'm a sophomore in Mechanical Engineering at Purdue University in West Lafayette. I'm originally from Apex, North Carolina and have lived there my whole life. My favorite part of Mechanical Engineering is being able to bring designs to life using CAD software. I also love the process of planning out a goal to accomplish with a team and taking the right steps to reach there. 
 
-Outside the shop, I swam competitively through high school — a state title in the
-100 backstroke and four years as a Scholastic All American — and I now coach
-age-group swimmers. A lot of what I like about coaching is the same thing I like
-about engineering: breaking something complicated into parts you can actually
-work on.
+Before college, I swam competitvely for the last 10 years. It taught me discipline and the satisfaction of reaching your goals. I was even able to win the high school state title for the 100 Yard Backstroke my senior year. I've been an assistant swim coach for the last 2 years and I love being able to make an impact helping kids improve their swimming ability.
+
+Outside of school I love golfing, baking, and working out. I'm an avid Lightning McQueen enthusiast and am a big Cars fan (the movies not actual cars). Lastly, my favorite food is Sushi.

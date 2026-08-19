@@ -61,13 +61,6 @@ education:
     detail: GPA 4.22 · Magna Cum Laude · AP Scholar with Distinction
 ---
 
-I'm a mechanical engineering student at Purdue University, where I'm on the
-Dean's List with a 3.98 GPA. I'm drawn to the parts of engineering where design
-meets making — CAD in the morning, 3D printer and soldering iron in the
-afternoon. Most of my projects start as a mechanical problem and end up somewhere
-between mechanism, electronics, and software: a reverse-engineered LiDAR scan
-turned into a print-ready statue, a pen plotter modeled from scratch, a factory
-floor simulated in a browser tab.
 
 Outside the shop, I swam competitively through high school — a state title in the
 100 backstroke and four years as a Scholastic All American — and I now coach
